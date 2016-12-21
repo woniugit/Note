@@ -10,31 +10,31 @@ NewsTeam alert
 		
 	alert V2:
 		Get Alert Domain url
-		http://qsstage.morningstar.com/prestage/ra/getAlertDomain?instid=SCIV&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":"http://qsstage.morningstar.com/prestage/ra"}
+		http://qsstage.morningstar.com/ra/getAlertDomain?instid=SCIV&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D
+		{"status":{"code":"0","message":"Succeeded"},"data":"http://qsstage.morningstar.com/ra"}
 		
 		Get email url
-		http://qsstage.morningstar.com/prestage/ra/getAlertEmail?sessionID=26A003E3838C35434AF5849B4C6281AE&instid=SCIV&sdkver=2.4.1&qs_wsid=26A003E3838C35434AF5849B4C6281AE 
+		http://qsstage.morningstar.com/ra/getAlertEmail?sessionID=26A003E3838C35434AF5849B4C6281AE&instid=SCIV&sdkver=2.4.1&qs_wsid=26A003E3838C35434AF5849B4C6281AE 
 			
 		get alert
-		http://qsstage.morningstar.com/prestage/ra/getAlerts?instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1114.0000","uniqueAlertID":"48056948","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"},{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1111.0000","uniqueAlertID":"48056947","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
+		http://qsstage.morningstar.com/ra/getAlerts?instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"code":"0","message":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1114.0000","uniqueAlertID":"48056948","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"},{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1111.0000","uniqueAlertID":"48056947","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
 		
 		add alert
-		http://qsstage.morningstar.com/prestage/ra/subscribe?alertID=00012&instrument=19.1.IIVI&value=1114&instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"19.1.IIVI","userTargetPrice":"1114","uniqueAlertID":"48056948","name":"II-VI Incorporated","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
+		http://qsstage.morningstar.com/ra/subscribe?alertID=00012&instrument=19.1.IIVI&value=1114&instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"code":"0","message":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"19.1.IIVI","userTargetPrice":"1114","uniqueAlertID":"48056948","name":"II-VI Incorporated","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
 		
 		update alert
-		http://qsstage.morningstar.com/prestage/ra/update?instrument=126.1.IIVI&alertID=00012&value=222&uniqueAlertID=48056948&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"}}
+		http://qsstage.morningstar.com/ra/update?instrument=126.1.IIVI&alertID=00012&value=222&uniqueAlertID=48056948&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"code":"0","message":"Succeeded"}}
 		
 		delete alert
-		http://qsstage.morningstar.com/prestage/ra/delete?uniqueAlertID=48056947&instrument=126.1.IIVI&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=DISN&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"}}
+		http://qsstage.morningstar.com/ra/delete?uniqueAlertID=48056947&instrument=126.1.IIVI&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=DISN&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
+		{"status":{"code":"0","message":"Succeeded"}}
 		
 		writeAlertConifg
-		qsstage.morningstar.com/prestage/ra/writeAlertConifg?email=devin.liu@morningstar.com&lang=0&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=SCIV&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
-		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":{"lang":0,"userId":"15081","email":"devin.liu@morningstar.com"}}
+		qsstage.morningstar.com/ra/writeAlertConifg?email=devin.liu@morningstar.com&lang=0&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=SCIV&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
+		{"status":{"code":"0","message":"Succeeded"},"data":{"lang":0,"userId":"15081","email":"devin.liu@morningstar.com"}}
 
 
 	alert accounts(stg):
