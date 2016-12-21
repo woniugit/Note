@@ -1,0 +1,45 @@
+NewsTeam alert 
+	contacts :kevin xu 
+	alert swagger:
+	http://adalertstg81/alerts/swagger/index.html 
+	http://adalertqa81/alerts/swagger/index.html
+	
+	wiki
+	alertType define:
+	https://mswiki.morningstar.com/display/SWPAAS/Morningstar+Datapoint+Alerts
+		
+	alert V2:
+		Get Alert Domain url
+		http://qsstage.morningstar.com/prestage/ra/getAlertDomain?instid=SCIV&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":"http://qsstage.morningstar.com/prestage/ra"}
+		
+		Get email url
+		http://qsstage.morningstar.com/prestage/ra/getAlertEmail?sessionID=26A003E3838C35434AF5849B4C6281AE&instid=SCIV&sdkver=2.4.1&qs_wsid=26A003E3838C35434AF5849B4C6281AE 
+			
+		get alert
+		http://qsstage.morningstar.com/prestage/ra/getAlerts?instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1114.0000","uniqueAlertID":"48056948","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"},{"displaySymbol":"","symbol":"IIVI","ticker":"126.1.IIVI","userTargetPrice":"1111.0000","uniqueAlertID":"48056947","name":"II-VI INC","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
+		
+		add alert
+		http://qsstage.morningstar.com/prestage/ra/subscribe?alertID=00012&instrument=19.1.IIVI&value=1114&instid=SCIV&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":[{"displaySymbol":"","symbol":"IIVI","ticker":"19.1.IIVI","userTargetPrice":"1114","uniqueAlertID":"48056948","name":"II-VI Incorporated","userEmail":"","alertID":"12","order":"desc","uniqueUserID":"15081"}]}
+		
+		update alert
+		http://qsstage.morningstar.com/prestage/ra/update?instrument=126.1.IIVI&alertID=00012&value=222&uniqueAlertID=48056948&qs_wsid=E0EBC3B898B1E95690958971F431AFBE 
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"}}
+		
+		delete alert
+		http://qsstage.morningstar.com/prestage/ra/delete?uniqueAlertID=48056947&instrument=126.1.IIVI&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=DISN&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"}}
+		
+		writeAlertConifg
+		qsstage.morningstar.com/prestage/ra/writeAlertConifg?email=devin.liu@morningstar.com&lang=0&sessionID=CAFD99BBAE2C937DE44FA20F54C5BE4D&instid=SCIV&sdkver=2.4.1&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D 
+		{"status":{"errorCode":"0","errorMsg":"Succeeded"},"data":{"lang":0,"userId":"15081","email":"devin.liu@morningstar.com"}}
+
+
+	alert accounts(stg):
+		SCIV:ScSc16007/PP7AB6  userId:15081  token:eyJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.g4U2CS5b08UDH2N9FtBI51fwOjLAJBCk21vr6reDL4mldf1bIJJI59_sgV7RiRwE-zsmgJwoXLMniibG3I-CZKKLd6jGUzwPGCHIK6ZuFgqGk4sZkTyCY6iYNdO628HgyYQWGpmj6xVVp5CU5F_lGSeNAgkTpQAaqGJr5spvIbc.KNtfAXR65bJGoiLv.rV_vc9jWgWHN_pGXrd3Eq5mA2aeHiyedPpts12pl_QTMUBu9d9Ddt9GQnbbmXrX42hgTGhUA_jgen449G9D0U92nGTC1gQkwdnGJ9_OKtt1D6lAQQnTuFVXWV-2vY8dh0Oa2bFCPHWJOg-OTih0Po9TemfCBEN-tn9zVgjmri1OHzbsNEaUriC4KX07MGwFeDPhJZviEThZQsbqpl65rYW3RQg.xjuFhUZ1UoJm4Ts8nfuOzQ
+		PS:MoM14072/8TZMHV     token:eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkExMjhHQ00ifQ.Xx1B2VPjM16UQo0iwQBJT6cu-eOhVnjp0WfIMsVZW4JFqqnzKm-RUAR2xHIKZxhcIxuXgjWouNOpG88uNnwSM1uuwsrKf7GA1xUZCUZkiKZGC40a6avpfYbkojz8s0uRmLLF7JFg7Tc680IYLxyehOTVka6EqQkcUbY10L8ERrU.XZ9jArX9vQbM_j_p.XI0KywovISUKHTWb6K4OzUevArhJNd1mpHp5tbMnrDEPqetdlIIj-BiD3H2DHJpB1lAOAyLU0mavdtRdUK2E2zzd0FIgLU6ELZyTyY7rbakwa839P1xoeCwgnwc8Yaq_IT2mlCBcaCGDmHpkya3V1QREmak4SC-hdhXITi6Cu0LSBB_pN2uhyGrADYa7i71m1w-G9MfeZyAG8cYRpapN-QGF.DFQw6Skhs0D1u-Ki17kQmA
+		DISN:DiDi11633/2GH7VE  token:eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkExMjhHQ00ifQ.y9lkgxtv2qmPLnng7GJxnRJufs7NLIdOpbir5qt56Wg2CSQ2Tp1MqhvGA9lAwRqSGj3eXRtV6fNQ9QC61uO4qBTlLMKgNCjJq40OtR8JbIoMkdAoL6yDwOoTxwo8k0oDtHAz4AahK3W4TcW-CxZWRO45w4FSn88OVx1ZB2gXUgw.tIhI5u21_jXLlVTX.G2IBNW_8UpW8JmfY50L7a9klSRGI3YUabjcwTzM7j2Ops-ZW49RkPhDJkuTzA40FTTZKxqF05P3O690lMl2P8Oo6HSVB351mlwkP5dNdJFzPTmhL5JA90t8wJvfNewMrk4evVAiqqgZMOdRpj4_3kNnIj0i6v43qqNsAA_UCccQj9DP-rS3Gvt8Ev6gGvQwES2PEQxwoZ4n5Nbzy-HN8iCjbCw.AdqL777tjUc3oT5RDugQJQ
+
+	
