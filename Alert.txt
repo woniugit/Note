@@ -8,6 +8,12 @@ NewsTeam alert
 	alertType define:
 	https://mswiki.morningstar.com/display/SWPAAS/Morningstar+Datapoint+Alerts
 		
+	realtime alert:
+	https://mswiki.morningstar.com/display/PDS/Real+Time+Credentials
+	http://msoxml.tenfore.com/AlertService/?username=XXXXXXX&password=XXXXXX&instrument=151.1.VOD&alert=11,55&UniqueUserID=TestUser
+	http://msoxml.tenfore.com/AlertService/?username=TeMrXXXX&password=123XXXX&UniqueUserID=1234567&ActiveAlerts
+	https://mswiki.morningstar.com/display/PDS/Real+Time+Web+Services+Spec?preview=/117546581/117508510/Morningstar%20Web%20Services%20Specification%20v4%204.pdf
+	
 	alert V2:
 		Get Alert Domain url
 		http://qsstage.morningstar.com/ra/getAlertDomain?instid=SCIV&qs_wsid=CAFD99BBAE2C937DE44FA20F54C5BE4D
