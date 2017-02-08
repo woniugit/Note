@@ -1,0 +1,87 @@
+Idservice Óë autocomplete url¸ú×Ù 
+&trackUrl=true
+
+Login:
+http://localhost:8080/opt/apis/instlogin.jsp?instid=QSDEMO&userEmail=QSDEMO.QSAPI%40morningstar.com&password=Abc123&product=API&originalInsitd=&redirectPage=index.jsp&redirectFrom=indexpage
+
+IDservice:
+localhost:8080/opt/getids.jsp?instid=QSDEMO&sdkver=2.3.19&CToken=1455520661436&symbol=134.1.135&qs_wsid=C8D76F6E36FBC91868931F2466616798
+
+autocomplete:
+http://api-stg.morningstar.com/autocomplete/v1/qs/suggestion?k=OSK&c=(((AC018:126%20OR%20AC018:127))%20AND%20(AC003:1))&t=0&n=16&pd=QS&s=0&f=AC001,AC003,SecId,LS01Z,XI018,OS001,OS010,OS01W,AC019,AC020,AC021,AC026,AC027,AC018,AC028,OS06Y,AC029,AC030,AC037,AC038,OS05J,OS369&p=OS001,AC001,AC020,AC038,OS01W&apikey=Icm9HQtBZQXGEBVX0e2eQC2aPHGEvyOm
+
+Time&sales:
+http://localhost:8080/opt/ra/timeSales?tickers=134.1.135&sd=16-02-2016&st=03%3A09%3A09.000&instid=QSDEMO&sdkver=2.3.19&CToken=1455504507976&_=1455504515323&qs_wsid=9503CCCFC623B433D8E092C0105886A6    
+
+
+marketbarometer:
+http://localhost:8080/pull/pull/getPullQuote.jsp?query=33.10.!MLCR%2C33.10.!MLGR%2C33.10.!MLVL%2C33.10.!MMCR%2C33.10.!MMGR%2C33.10.!MMVL%2C33.10.!MSCR%2C33.10.!MSGR%2C33.10.!MSVL&dataFrequency=30000&componentName=marketbarometer|33.10.!MLCR-33.10.!MLGR-33.10.!MLVL-33.10.!MMCR-33.10.!MMGR-33.10.!MMVL-33.10.!MSCR-33.10.!MSGR-33.10.!MSVL&instid=DISN&sdkver=2.3.18&CToken=1453734691106&qs_wsid=1ECEC300D487BD4AC4749FF782AC085E&_=1453734769063
+
+quote:
+http://localhost:8080/pull/pull/getPullQuote.jsp?instid=DISN&query=128%3A2%3AABX7AKC020000&dataFrequency=30000&CToken=1453370252915&_=1453370485175&qs_wsid=C48CD0FF145AEC1E9EB4101F8FB44098
+
+http://qsstage.morningstar.com/prestgPullservice/pull/getPullQuote.jsp?query=151.1.IVPB&dataFrequency=30000&componentName=quote&instid=FIDE&qs_wsid=FF9CFD477423F8BFADB5F824AE35AF84
+
+Ext quote
+http://qsstage.morningstar.com/prestgPullservice/extService/quotes?tickers=151.1.IVPB&instid=FIDE&qs_wsid=FF9CFD477423F8BFADB5F824AE35AF84
+
+Chart
+http://qsstage.morningstar.com/prestage/ra/uniqueChartData?f=d&sd=20060101&ed=20160801&tickers=30.10.!DJI%2C127.10.0000%2C126.1.DIS%2C126.1.FOXA&cdt=7&instid=DISN&sdkver=2.3.33&CToken=1470037680104&qs_wsid=7D99E00E867031588CFCE2CA2F09A67C
+
+TSP£º
+http://qsstage.morningstar.com/ra/uniqueChartData?f=d&country=EUR&solutionKey=3y3wd9echv&fields=TSP&sd=20160717&ed=20160816&tickers=CBLT002175]7]0]IXALL$$ALL|SecID&cdt=16&instid=OSIM&sdkver=2.3.37&CToken=1474031772793&CToken=1474031772793&instid=OSIM&qs_wsid=581782680730AD73EAF4BD3F256B27AF
+
+http://lt.morningstar.com/api/rest.svc/timeseries_price/3y3wd9echv?id=CBLT002175]7]0]IXALL$$ALL&idType=SecID&currencyId=EUR&startDate=2016-7-17&endDate=2016-8-16&frequency=daily
+
+TSD:
+http://qsstage.morningstar.com/ra/uniqueChartData?f=d&country=EUR&solutionKey=3y3wd9echv&fields=TSD&sd=20040122&ed=20160628&tickers=F0GBR04S5T]2]0]FOGBR$$ALL|Morningstar&cdt=16&instid=QSDEMO&sdkver=2.3.37&CToken=1473666806433&qs_wsid=F2C6E6D6B23727C7F9426DF023022E16
+
+lt.morningstar.com/api/rest.svc/timeseries_dividend/3y3wd9echv?id=F0GBR04S5T]2]0]FOGBR$$ALL&idType=Morningstar&currencyId=EUR&startDate=2004-01-22&endDate=2016-02-22
+
+
+TSG:
+http://qsstage.morningstar.com/ra/uniqueChartData?f=W&solutionKey=3y3wd9echv&fields=TSG&country=EUR&sd=20150722&ed=20151022&preAfter=false&tickers=CBLT002175]7]0]IXALL$$ALL|SecID,FOUSA06CGQ]7]0]IXALL$$ALL|MSID&cdt=16&instid=QSDEMO&sdkver=2.3.13&qs_wsid=F4AFAADE91FE3F17435CAEBEFDDE1127
+http://lt.morningstar.com/api/rest.svc/timeseries_growth/3y3wd9echv?id=CBLT002175%5D7%5D0%5DIXALL%24%24ALL&idType=SecID&currencyId=EUR&startDate=2013-12-01&endDate=2014-12-01&frequency=weekly
+
+TSC:
+lt.morningstar.com/api/rest.svc/timeseries_cumulativereturn/3y3wd9echv?id=F0GBR04S5T]2]0]FOGBR$$ALL&idType=Morningstar&currencyId=EUR&startDate=2004-01-22&endDate=2016-02-22
+
+
+LevelTwoByPrice:
+http://qsstage.morningstar.com/pullservice/ra/LevelTwoByPrice?query=163.7.IT0005170839&tokens=D2,D3,D4,D5,D6,D7,D16,D17,D18,D19,D1978,D167,D168,D169,D170,D171,D173,D174,D175,D176,D177,D191,D192,D193,D194,D195,D197,D198,D199,D200,D201,D185,D186,D187,D188,D189,D179,D180,D181,D182,D183&instid=CBNCA&sdkver=2.3.26&CToken=1479371398083&qs_wsid=51213E1B9D8A57618140712CA42D354C
+
+http://msxml.tenfore.com/index.php?username=ChCh15501&password=6xHMZM&instrument=223.1.TIT&fields=D2,D3,D4,D5,D6,D7,D16,D17,D18,D19,D1978,D167,D168,D169,D170,D171,D173,D174,D175,D176,D177,D191,D192,D193,D194,D195,D197,D198,D199,D200,D201,D185,D186,D187,D188,D189,D179,D180,D181,D182,D183
+
+
+http://mshxml.morningstar.com/index.php?username=ChCh15501&password=6xHMZM&instrument=163.7.IT0005170839&fields=D2,D3,D4,D5,D6,D7,D16,D17,D18,D19,D1978,D167,D168,D169,D170,D171,D173,D174,D175,D176,D177,D191,D192,D193,D194,D195,D197,D198,D199,D200,D201,D185,D186,D187,D188,D189,D179,D180,D181,D182,D183
+
+
+retrievePermissionWithRtdEmail£º
+http://adrtqweb.morningstar.com/RTQuote/GetEnablement2?TID=9900009941&EM=pladwa@questrade.com
+
+getStock
+
+Intraydaymimi
+http://mshxml.morningstar.com/indexTS/?username=MoDe04999&password=9EULPx&instrument=126.1.IBM&sdate=24-05-2016&stime=00:00:01&edate=06-09-2016&etime=23:59:59&type=bar&interval=240&OpenClose
+
+GLA top data:
+http://mshxml.morningstar.com/index.php?username=FiFi15667&password=J2UJH8&instrument=151.1.MSTATS_FTSE100&fields=D2158
+
+quote:
+http://mshxml.morningstar.com/index.php?username=DiDi11632&password=Z3VE2A&instrument=37.1.IMI/AQL
+EOD chart:
+http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&sdate=16-08-2016&edate=01-12-2016&type=dailybar
+IntradyChart:
+http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&tradingdays=2&type=bar&interval=1&OpenClose
+Pull refreshCahe:
+http://msqspull64.morningstar.com/pullservice/ra/refreshCache?qs_wsid=1B094D76EBF0D77C4F292A1AAB697E69
+news refreshSourceCode
+stage:
+http://qsstage.morningstar.com/ra/refreshSourceCode?instid=EQUI&qs_wsid=F9E93558337BC0CA5041209734ACE50A
+Live:
+http://quotespeed.morningstar.com/ra/refreshSourceCode?instid=EQUI&qs_wsid=1B094D76EBF0D77C4F292A1AAB697E69
+
+
+http://qsstage.morningstar.com/quote.jsp?ty=D&exch=33&ticker=!SPX&stype=10&days=1&_t=1482229356012&CToken=null&instid=QSTPUB
+realtime url:
+http://mshxml.morningstar.com/indexTS/?username=Quma15920&password=THCx5A&instrument=33.10.!SPX&sdate=16-12-2016&stime=00:00:01&edate=now&etime=now&type=bar&interval=1&OpenClose
