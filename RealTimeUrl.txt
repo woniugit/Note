@@ -85,3 +85,7 @@ http://quotespeed.morningstar.com/ra/refreshSourceCode?instid=EQUI&qs_wsid=1B094
 http://qsstage.morningstar.com/quote.jsp?ty=D&exch=33&ticker=!SPX&stype=10&days=1&_t=1482229356012&CToken=null&instid=QSTPUB
 realtime url:
 http://mshxml.morningstar.com/indexTS/?username=Quma15920&password=THCx5A&instrument=33.10.!SPX&sdate=16-12-2016&stime=00:00:01&edate=now&etime=now&type=bar&interval=1&OpenClose
+
+
+constituent index:
+http://mshxml.morningstar.com/index.php?username=MoMo16146&password=9G63A3&index=223.10.!FTSEMIB
