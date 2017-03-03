@@ -38,7 +38,6 @@ http://qsstage.morningstar.com/ra/uniqueChartData?f=d&country=EUR&solutionKey=3y
 
 lt.morningstar.com/api/rest.svc/timeseries_dividend/3y3wd9echv?id=F0GBR04S5T]2]0]FOGBR$$ALL&idType=Morningstar&currencyId=EUR&startDate=2004-01-22&endDate=2016-02-22
 
-
 TSG:
 http://qsstage.morningstar.com/ra/uniqueChartData?f=W&solutionKey=3y3wd9echv&fields=TSG&country=EUR&sd=20150722&ed=20151022&preAfter=false&tickers=CBLT002175]7]0]IXALL$$ALL|SecID,FOUSA06CGQ]7]0]IXALL$$ALL|MSID&cdt=16&instid=QSDEMO&sdkver=2.3.13&qs_wsid=F4AFAADE91FE3F17435CAEBEFDDE1127
 http://lt.morningstar.com/api/rest.svc/timeseries_growth/3y3wd9echv?id=CBLT002175%5D7%5D0%5DIXALL%24%24ALL&idType=SecID&currencyId=EUR&startDate=2013-12-01&endDate=2014-12-01&frequency=weekly
@@ -61,18 +60,7 @@ http://adrtqweb.morningstar.com/RTQuote/GetEnablement2?TID=9900009941&EM=pladwa@
 
 getStock
 
-Intraydaymimi
-http://mshxml.morningstar.com/indexTS/?username=MoDe04999&password=9EULPx&instrument=126.1.IBM&sdate=24-05-2016&stime=00:00:01&edate=06-09-2016&etime=23:59:59&type=bar&interval=240&OpenClose
 
-GLA top data:
-http://mshxml.morningstar.com/index.php?username=FiFi15667&password=J2UJH8&instrument=151.1.MSTATS_FTSE100&fields=D2158
-
-quote:
-http://mshxml.morningstar.com/index.php?username=DiDi11632&password=Z3VE2A&instrument=37.1.IMI/AQL
-EOD chart:
-http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&sdate=16-08-2016&edate=01-12-2016&type=dailybar
-IntradyChart:
-http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&tradingdays=2&type=bar&interval=1&OpenClose
 Pull refreshCahe:
 http://msqspull64.morningstar.com/pullservice/ra/refreshCache?qs_wsid=1B094D76EBF0D77C4F292A1AAB697E69
 news refreshSourceCode
@@ -83,9 +71,18 @@ http://quotespeed.morningstar.com/ra/refreshSourceCode?instid=EQUI&qs_wsid=1B094
 
 
 http://qsstage.morningstar.com/quote.jsp?ty=D&exch=33&ticker=!SPX&stype=10&days=1&_t=1482229356012&CToken=null&instid=QSTPUB
+
 realtime url:
 http://mshxml.morningstar.com/indexTS/?username=Quma15920&password=THCx5A&instrument=33.10.!SPX&sdate=16-12-2016&stime=00:00:01&edate=now&etime=now&type=bar&interval=1&OpenClose
-
-
+Intraydaymimi
+http://mshxml.morningstar.com/indexTS/?username=MoDe04999&password=9EULPx&instrument=126.1.IBM&sdate=24-05-2016&stime=00:00:01&edate=06-09-2016&etime=23:59:59&type=bar&interval=240&OpenClose
+GLA top data:
+http://mshxml.morningstar.com/index.php?username=FiFi15667&password=J2UJH8&instrument=151.1.MSTATS_FTSE100&fields=D2158
+quote:
+http://mshxml.morningstar.com/index.php?username=DiDi11632&password=Z3VE2A&instrument=37.1.IMI/AQL
+EOD chart:
+http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&sdate=16-08-2016&edate=01-12-2016&type=dailybar
+IntradyChart:
+http://mshxml.morningstar.com/indexTS?username=DiDi11632&password=Z3VE2A&instrument=37.1.A/AQL&tradingdays=2&type=bar&interval=1&OpenClose
 constituent index:
 http://mshxml.morningstar.com/index.php?username=MoMo16146&password=9G63A3&index=223.10.!FTSEMIB
