@@ -1,4 +1,4 @@
-Idservice Óë autocomplete url¸ú×Ù 
+Idservice ï¿½ï¿½ autocomplete urlï¿½ï¿½ï¿½ï¿½ 
 &trackUrl=true
 
 Login:
@@ -28,14 +28,12 @@ http://qsstage.morningstar.com/prestgPullservice/extService/quotes?tickers=151.1
 Chart
 http://qsstage.morningstar.com/prestage/ra/uniqueChartData?f=d&sd=20060101&ed=20160801&tickers=30.10.!DJI%2C127.10.0000%2C126.1.DIS%2C126.1.FOXA&cdt=7&instid=DISN&sdkver=2.3.33&CToken=1470037680104&qs_wsid=7D99E00E867031588CFCE2CA2F09A67C
 
-TSP£º
+TSP
 http://qsstage.morningstar.com/ra/uniqueChartData?f=d&country=EUR&solutionKey=3y3wd9echv&fields=TSP&sd=20160717&ed=20160816&tickers=CBLT002175]7]0]IXALL$$ALL|SecID&cdt=16&instid=OSIM&sdkver=2.3.37&CToken=1474031772793&CToken=1474031772793&instid=OSIM&qs_wsid=581782680730AD73EAF4BD3F256B27AF
-
 http://lt.morningstar.com/api/rest.svc/timeseries_price/3y3wd9echv?id=CBLT002175]7]0]IXALL$$ALL&idType=SecID&currencyId=EUR&startDate=2016-7-17&endDate=2016-8-16&frequency=daily
 
 TSD:
 http://qsstage.morningstar.com/ra/uniqueChartData?f=d&country=EUR&solutionKey=3y3wd9echv&fields=TSD&sd=20040122&ed=20160628&tickers=F0GBR04S5T]2]0]FOGBR$$ALL|Morningstar&cdt=16&instid=QSDEMO&sdkver=2.3.37&CToken=1473666806433&qs_wsid=F2C6E6D6B23727C7F9426DF023022E16
-
 lt.morningstar.com/api/rest.svc/timeseries_dividend/3y3wd9echv?id=F0GBR04S5T]2]0]FOGBR$$ALL&idType=Morningstar&currencyId=EUR&startDate=2004-01-22&endDate=2016-02-22
 
 TSG:
@@ -43,6 +41,7 @@ http://qsstage.morningstar.com/ra/uniqueChartData?f=W&solutionKey=3y3wd9echv&fie
 http://lt.morningstar.com/api/rest.svc/timeseries_growth/3y3wd9echv?id=CBLT002175%5D7%5D0%5DIXALL%24%24ALL&idType=SecID&currencyId=EUR&startDate=2013-12-01&endDate=2014-12-01&frequency=weekly
 
 TSC:
+http://qsstage.morningstar.com/ra/uniqueChartData?f=W&solutionKey=3y3wd9echv&fields=TSC&country=EUR&sd=20150722&ed=20151022&tickers=FOUSA06CGQ]7]0]IXALL$$ALL|MSID&cdt=16&instid=QSDEMO&qs_wsid=E19AF365B51F40EE40A3AD10EACDD72D
 lt.morningstar.com/api/rest.svc/timeseries_cumulativereturn/3y3wd9echv?id=F0GBR04S5T]2]0]FOGBR$$ALL&idType=Morningstar&currencyId=EUR&startDate=2004-01-22&endDate=2016-02-22
 
 
@@ -55,7 +54,7 @@ http://msxml.tenfore.com/index.php?username=ChCh15501&password=6xHMZM&instrument
 http://mshxml.morningstar.com/index.php?username=ChCh15501&password=6xHMZM&instrument=163.7.IT0005170839&fields=D2,D3,D4,D5,D6,D7,D16,D17,D18,D19,D1978,D167,D168,D169,D170,D171,D173,D174,D175,D176,D177,D191,D192,D193,D194,D195,D197,D198,D199,D200,D201,D185,D186,D187,D188,D189,D179,D180,D181,D182,D183
 
 
-retrievePermissionWithRtdEmail£º
+retrievePermissionWithRtdEmailï¿½ï¿½
 http://adrtqweb.morningstar.com/RTQuote/GetEnablement2?TID=9900009941&EM=pladwa@questrade.com
 
 getStock
