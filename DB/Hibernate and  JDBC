@@ -1,32 +1,32 @@
- JDBC��Hibernate����������ȣ�JDBC����������ơ���Hibernate����ѧ�ԣ�����������Щ���ơ����õ��ܶิ�ӵĶ������͸��ӵ����ݿ����ʱ��JDBC�����ơ�
-��ͬ�㣺
+JDBC与Hibernate在性能上相比，JDBC灵活性有优势。而Hibernate在易学性，易用性上有些优势。当用到很多复杂的多表联查和复杂的数据库操作时，JDBC有优势。
+相同点：
 
-�����߶���JAVA�����ݿ�����м����
+◆两者都是JAVA的数据库操作中间件。
 
-�����߶������ݿ����ֱ�Ӳ����Ķ��󶼲����̰߳�ȫ�ģ�����Ҫ��ʱ�رա�
+◆两者对于数据库进行直接操作的对象都不是线程安全的，都需要及时关闭。
 
-�����߶����Զ����ݿ�ĸ��²���������ʽ����������
+◆两者都可以对数据库的更新操作进行显式的事务处理。
 
-��ͬ�㣺
+不同点：
 
-��ʹ�õ�SQL���Բ�ͬ��JDBCʹ�õ��ǻ��ڹ�ϵ�����ݿ�ı�׼SQL���ԣ�Hibernateʹ�õ���HQL(Hibernate query language)����
+◆使用的SQL语言不同：JDBC使用的是基于关系型数据库的标准SQL语言，Hibernate使用的是HQL(Hibernate query language)语言
 
-�������Ķ���ͬ��JDBC�����������ݣ�������ͨ��SQL���ֱ�Ӵ��͵����ݿ���ִ�У�Hibernate�������ǳ־û������ɵײ�־û���������ݸ��µ����ݿ��С�
+◆操作的对象不同：JDBC操作的是数据，将数据通过SQL语句直接传送到数据库中执行，Hibernate操作的是持久化对象，由底层持久化对象的数据更新到数据库中。
 
-������״̬��ͬ��JDBC�����������ǡ�˲ʱ���ģ�������ֵ�޷������ݿ��е�ֵ����һ�£���Hibernate�����������ǿɳ־õģ����־û�������������Ե�ֵ�ǿ��Ը����ݿ��е�ֵ����һ�µġ�
+◆数据状态不同：JDBC操作的数据是“瞬时”的，变量的值无法与数据库中的值保持一致，而Hibernate操作的数据是可持久的，即持久化对象的数据属性的值是可以跟数据库中的值保持一致的。
 
-JDBC��Hibernate��ȡ����
+JDBC与Hibernate读取性能
 
-1��JDBC��Ȼ�����ķ��ʷ�ʽ��������Create����Read����������JDBC�졣
+1、JDBC仍然是最快的访问方式，不论是Create还是Read操作，都是JDBC快。
 
-2��Hibernateʹ��uuid.hex����������������΢�е���ʧ�����ǲ���
+2、Hibernate使用uuid.hex构造主键，性能稍微有点损失，但是不大。
 
-3��Create������JDBC��ʹ���������ķ�ʽ���ٶȱ�Hibernate�죬ʹ����������ʽ����JVM�ڴ�Ȳ�ʹ����������ʽҪ��öࡣ
+3、Create操作，JDBC在使用批处理的方式下速度比Hibernate快，使用批处理方式耗用JVM内存比不使用批处理方式要多得多。
 
-4����ȡ���ݣ�Hibernate��Iterator�ٶȷǳ���������Ϊ����ÿ��next��ʱ���ȥ���ݿ�ȡ���ݣ���һ��ӹ۲������������java����ռ���ڴ�ı仯Ҳ���Կ��ú�������ڴ��Ǽ�ʮK��ʮK�����ӡ�
+4、读取数据，Hibernate的Iterator速度非常缓慢，因为他是每次next的时候才去数据库取数据，这一点从观察任务管理器的java进程占用内存的变化也可以看得很清楚，内存是几十K几十K的增加。
 
-5����ȡ���ݣ�Hibernate��List�ٶȺܿ죬��Ϊ����һ���԰�����ȡ�꣬��һ��ӹ۲������������java����ռ���ڴ�ı仯Ҳ���Կ��ú�������ڴ漸����10M��10M�����ӡ�
+5、读取数据，Hibernate的List速度很快，因为他是一次性把数据取完，这一点从观察任务管理器的java进程占用内存的变化也可以看得很清楚，内存几乎是10M的10M的增加。
 
-6��JDBC��ȡ���ݵķ�ʽ��Hibernate��List��ʽ��һ���ģ����JDBC�����кܴ��ϵ����ͬ��JDBC�����������ܲ�һ�������� �ӹ۲�java�����ڴ�仯�����жϳ���������JDBC����Ҫ��Hibernate��������һ��Cat����ʵ��������ռ��JVM�ڴ�Ҫ�� Hibernate��List��ʽ�����һ�����ҡ�
+6、JDBC读取数据的方式和Hibernate的List方式是一样的（这跟JDBC驱动有很大关系，不同的JDBC驱动，结果会很不一样），这 从观察java进程内存变化可以判断出来，由于JDBC不需要像Hibernate那样构造一堆Cat对象实例，所以占用JVM内存要比 Hibernate的List方式大概少一半左右。
 
-7��Hibernate��Iterator��ʽ����һ���Ǵ������ʺ��ڴӴ�Ľ������ѡȡ���������ݣ�������Ҫռ�úܶ��ڴ棬�ֿ���Ѹ�ٵõ����������Iterator�ʺ���ʹ��JCS���塣
+7、Hibernate的Iterator方式并非一无是处，它适合于从大的结果集中选取少量的数据，即不需要占用很多内存，又可以迅速得到结果。另外Iterator适合于使用JCS缓冲。
