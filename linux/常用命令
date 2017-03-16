@@ -1,0 +1,34 @@
+查看目录大小：
+ du -h --max-depth=1 /data/tomcat/
+ 
+查询自动执行命令 
+crontab -l
+修改
+sudo crontab -e
+
+查询最咱内存的详细日志：
+TOP --> 按1 可以查看cpu --> shit+h  找到进程号PID  
+打印 16进制 进程号 ： printf "%x\n" 进程号PID
+通过 16进制 进程号 跟踪到详细代码 ： jstack 主进程号|grep PID -A 10 
+
+linux下获取占用CPU资源最多的10个进程，可以使用如下命令组合：  
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head
+
+查询端口占用情况
+netstat –apn | grep 8080
+
+查询进程
+ps -aux | grep pid   
+
+telnet
+telnet 主机 端口
+
+查看ip地址
+/sbin/ifconfig
+
+chown mstar:mstar *.css
+chmod [-vR] mode 文件名
+mode 权限设置字符串 [ugoa][+-=][rwx]
+
+执行url 并将结果输出到aa.txt里
+wget “url” -O aa.txt  

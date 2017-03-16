@@ -1,0 +1,22 @@
+Tomcat发布流程： 
+      修改前 备份 cp server.xml server.xml.bak 
+  1.cd /data/conf  or /data/tomcat 到相应的路径
+  2.修改相关文件  vim vi  
+            上下翻页用 pageup/down 
+	vi模式 查询字段  按/+要查询的字段  n是下一个 N是上一个
+	i插入  Esc退出  dd删除光标所在的行   
+	o 在光标所在行下面新增一行（进入输入模式）
+	yyp 或者（选中 按o 再右键）： copy上一行粘贴到新建行
+	:w ——保存当前文件 
+	:wq —— 存盘退出(与指令 :x 功能相同) 
+	:q —— 直接退出，如已修改会提示是否保存 
+	:q! ——不保存直接退出  
+  3.查找进程 ps -ef|grep 进程名
+  4.结束旧的进程  kill -9 进程号
+  5.到tomcat 里启动进程 /data/tomcat/bin  下的 startup.sh  ./startup.sh
+  6.查看日志  tail -100f catalina.out  Ctrl+c 退出查看 
+  
+
+  
+  
+  

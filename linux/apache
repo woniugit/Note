@@ -1,0 +1,10 @@
+1.apache 安装
+
+
+
+2.修改apache 配置
+vi /etc/httpd/conf/httpd.conf
+
+
+3.重启apache 
+sudo /usr/sbin/apachectl -k restart

@@ -1,0 +1,97 @@
+1.ls
+  inux终端下，使用ls时，显示的文件颜色意义
+        白色：普通文件
+        蓝色：目录
+        绿色：可执行文件
+        红色：压缩文件
+        红色闪烁：表示链接的文件有问题
+        浅蓝色：链接文件
+        黄色：表示设备文件
+        灰色：表示其他文件
+    
+
+2.chmod
+    chmod [-vR] mode 文件名
+    mode 权限设置字符串 [ugoa][+-=][rwx]  ----u：用户  g：组 o:其他 a:所以用户（默认） +-:增删 =：重新分配权限
+    实例： chmod u+x file
+     chmod =r file    
+    另外一种 用三位八进制数字的形式来表示权限
+    第一位指定属主的权限，第二位指定组权限，第三位指定其他用户的权限，每位通过4(读)、2(写)、1(执行)三种数值的和来确定权限。
+    如6(4+2)代表有读写权，7(4+2+1)有读、写和执行的权限。
+    实例：chmod 751 file
+    还可设置第四位，它位于三位权限序列的前面，第四位数字取值是4，2，1，代表意思如下：
+        4，执行时设置用户ID，用于授权给基于文件属主的进程，而不是给创建此进程的用户。
+        2，执行时设置用户组ID，用于授权给基于文件所在组的进程，而不是基于创建此进程的用户。
+        1，设置粘着位。
+    实例： chmod 4751 file
+    
+
+3.chown
+    chown [选项]... [所有者][:[组]] 文件...
+    实例：
+    chown mstar:mstar *.css
+    chown -R -v mstar:mstar filename 
+
+4.rm
+    rm  -f/i/r/v  文件...   f:force 不给提示  i:interactive 交互式删除 r：recursive 递归删除  v 显示详细步骤
+
+5.find
+    find   path   -option   [   -print ]   [ -exec   -ok   command ]   {} \;
+    option 有很多： name 查找名字 user group  mtime +/-n 更改时间在+n是n天以前 -n是哪天以内
+    type    b/d/c/p/l/f 查是块设备、目录、字符设备、管道、符号链接、普通文件
+实例：find . -type f -exec ls -l {} \;  查当前目录下的所有普通文件
+    find   -name april*  在当前目录下查找以april开始的文件
+    find   -name ap* -o -name may*   查找以ap或may开头的文件
+    find /home -mmin    +60  在/home下查60分钟前改动过的文件
+
+6.ln 链接命令
+   ln [options] source dist
+    不论是硬连结或软链结都不会将原本的档案复制一份，只会占用非常少量的磁碟空间。
+　　-f : 链结时先将与 dist 同档名的档案删除
+　　-d : 允许系统管理者硬链结自己的目录
+　　-i : 在删除与 dist 同档名的档案时先进行询问
+　　-n : 在进行软连结时，将 dist 视为一般的档案
+　　-s : 进行软链结(symbolic link)
+　　-v : 在连结之前显示其档名
+　　-b : 将在链结时会被覆写或删除的档案进行备份
+　　-S SUFFIX : 将备份的档案都加上 SUFFIX 的字尾
+　　-V METHOD : 指定备份的方式
+　　--help : 显示辅助说明
+　　--version : 显示版本
+    实例：ln -s yy zz  yy产生一个软连接zz
+     ln yy zz  yy产生一个硬链接zz
+
+7.cat
+     cat主要有三大功能：
+        1.一次显示整个文件。$ cat filename
+        2.从键盘创建一个文件。$ cat > filename  
+           只能创建新文件,不能编辑已有文件.
+        3.将几个文件合并为一个文件： $cat file1 file2 > file
+      实例：cat -n textfile1 > textfile2
+    
+8.mount 挂载光盘镜像文件、移动硬盘、U盘以及Windows网络共享和UNIX NFS网络共享等
+    mount [-t vfstype] [-o options] device dir
+    1.-t vfstype 指定文件系统的类型，通常不必指定。
+                           光盘或光盘镜像：iso9660
+　　    		DOS fat16文件系统：msdos
+　　    		Windows 9x fat32文件系统：vfat
+　　    		Windows NT ntfs文件系统：ntfs
+　　    		Mount Windows文件网络共享：smbfs
+　　    		UNIX(LINUX) 文件网络共享：nfs
+    2.-o options 主要用来描述设备或档案的挂接方式。常用的参数有：
+　　    		loop：用来把一个文件当成硬盘分区挂接上系统
+　　   		ro：采用只读方式挂接设备
+　　   		rw：采用读写方式挂接设备
+　　    		iocharset：指定访问文件系统所用字符集
+　　3.device 要挂接(mount)的设备。
+　　4.dir设备在系统上的挂接点(mount point)。
+          实例：    1、从光盘制作光盘镜像文件 ：#cp /dev/cdrom /home/sunky/mydisk.iso 
+        2、将文件和目录制作成光盘镜像文件：#mkisofs -r -J -V mydisk -o /home/sunky/mydisk.iso /home/sunky/mydir
+        3、建立一个目录用来作挂接点：#mkdir /mnt/vcdrom
+        4、挂载：#mount -o loop -t iso9660 /home/sunky/mydisk.iso /mnt/vcdrom
+
+9.mkdir
+通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录 需有写的权限 且不重名 
+    mkdir [选项] 目录...
+        -m --mode=模式，设定权限<模式> (类似 chmod)，而不是 rwxrwxrwx 减 umask
+        -p --parents  可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录; 
