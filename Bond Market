@@ -1,0 +1,19 @@
+0. get token 
+http://equityapi.morningstar.com/WSLogin/LOGIN.asmx/Login?email=Quotespeeddevelopment@morningstar.com&password=QuoteSpeed1
+
+1.	treasury-yield
+http://equityapi.morningstar.com/WebService/GlobalMarketIndicesService.asmx/GetTreasuryBondValueSnapshots?category=GetTreasuryBondValueSnapshots&treasuryBondName=US+Treasury+Bond&responseType=XML&Token={*}.
+
+2.	 US Gov Bond
+four government bondName and ticker
+"US Govt Bond", "FOUSA06IEX";
+"Short-Term US Govt Bond", "FOUSA06IF3";
+"Intermediate US Govt Bond", "FOUSA06IF5";
+"Long-Term US Govt Bond", "FOUSA06IF8";
+value :
+http://equityapi.morningstar.com/WebService/GlobalMarketIndicesService.asmx/GetGovtBondValueSnapshot?category=GetGovtBondValueSnapshot&#38;governmentBondName={0}&#38;responseType=XML&#38;token={1}
+Chart: 
+http://equityapi.morningstar.com/webservice/GlobalMarketIndicesService.asmx/GetGovtBondValueHistory?governmentBondName={0}&#38;responseType=XML&#38;token={1}
+
+3.	10 year note yield 
+http://equityapi.morningstar.com/webservice/GlobalMarketIndicesService.asmx/GetTreasuryBondValueHistory?treasuryBondName=US%20Treasury%20Bond&#38;startDate={0}&#38;endDate={1}&#38;token={2}
