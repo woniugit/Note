@@ -1,73 +1,73 @@
-Õâ¸öÓ¦¸ÃÊÇ»ñÈ¡users.txtµÄÃüÁî£¬µ«Ê±¼ä¾­¹ıÌ«¾ÃÁË²»ÖªµÀÊÇ´ÓÄÄÖ´ĞĞ£¬Ã²ËÆÓ¦¸ÃÕÒµ½svn¿Í»§¶ËÔÚlinux»úÆ÷ÉÏµÄµØ·½Ö´ĞĞ¡£
-ÊµÔÚ²»ĞĞ¾ÍÓÃÒÔÏÂ·½Ê½´´½¨£º
-ĞÂ½¨users.txt
-ÄÚÈİ¸ñÊ½Îª
+è¿™ä¸ªåº”è¯¥æ˜¯è·å–users.txtçš„å‘½ä»¤ï¼Œä½†æ—¶é—´ç»è¿‡å¤ªä¹…äº†ä¸çŸ¥é“æ˜¯ä»å“ªæ‰§è¡Œï¼Œè²Œä¼¼åº”è¯¥æ‰¾åˆ°svnå®¢æˆ·ç«¯åœ¨linuxæœºå™¨ä¸Šçš„åœ°æ–¹æ‰§è¡Œã€‚
+å®åœ¨ä¸è¡Œå°±ç”¨ä»¥ä¸‹æ–¹å¼åˆ›å»ºï¼š
+æ–°å»ºusers.txt
+å†…å®¹æ ¼å¼ä¸º
 mli5 = Ming Li <ming.li@morningstar.com>
-svnÃû = gitÃû <git email>
-¼ÇÓÚ2015-12-14
+svnå = gitå <git email>
+è®°äº2015-12-14
 svn log --quiet http://szsvn01/repos/oneteam/QS/src/backend/WebService/Trunk --xml |grep -P "^<author" |sort -u |perl -pe 's/<author>(.*?)<\/author>/$1 = $1 < $1\@morningstar.com>/' > users.txt
 
 
-Clone git¿âµ½±¾µØ
+Clone gitåº“åˆ°æœ¬åœ°
 git clone https://mli5@msstash.morningstar.com/scm/qs/basic.git
 
 
-Clone svn¿âµ½±¾µØ²¢½¨Á¢Æğ±¾µØgit¿â[¶ÔÓ¦·ÇTag·ÖÖ§]
---authors-file  Ê¹ÓÃsvnÓëgitµÄÓÃ»§¶ÔÓ¦ÁĞ±í
---no-metadata   ºöÂÔsvnÖĞÎŞÓÃµÄÔ´ĞÅÏ¢
--r °æ±¾ºÅ       ´ÓÖ¸¶¨µÄrevision°æ±¾ºÅclone
-×îºóµÄÊÇ±¾µØgitµÄÃû×Ö
+Clone svnåº“åˆ°æœ¬åœ°å¹¶å»ºç«‹èµ·æœ¬åœ°gitåº“[å¯¹åº”éTagåˆ†æ”¯]
+--authors-file  ä½¿ç”¨svnä¸gitçš„ç”¨æˆ·å¯¹åº”åˆ—è¡¨
+--no-metadata   å¿½ç•¥svnä¸­æ— ç”¨çš„æºä¿¡æ¯
+-r ç‰ˆæœ¬å·       ä»æŒ‡å®šçš„revisionç‰ˆæœ¬å·clone
+æœ€åçš„æ˜¯æœ¬åœ°gitçš„åå­—
 git svn clone http://szsvn01/repos/oneteam/QS/src/backend/Basic/Trunk --authors-file=users.txt --no-metadata -r 166193:HEAD basic
 
 cd basic
 
-·Çmaster·ÖÖ§Ôò½øĞĞÒÔÏÂÕâ²½£º´´½¨feature-4Init·ÖÖ§·ÅÔÚfeatureÎÄ¼ş¼ĞÏÂ²¢ÇĞ»»µ½¸Ã·ÖÖ§
+émasteråˆ†æ”¯åˆ™è¿›è¡Œä»¥ä¸‹è¿™æ­¥ï¼šåˆ›å»ºfeature-4Initåˆ†æ”¯æ”¾åœ¨featureæ–‡ä»¶å¤¹ä¸‹å¹¶åˆ‡æ¢åˆ°è¯¥åˆ†æ”¯
 git checkout -b feature/feature-4Init
 
-¸ø±¾µØgit¿âÔö¼ÓÔ¶³ÌµØÖ·£¬Ãû×ÖÎªorigin
+ç»™æœ¬åœ°gitåº“å¢åŠ è¿œç¨‹åœ°å€ï¼Œåå­—ä¸ºorigin
 git remote add origin https://mli5@msstash.morningstar.com/scm/qs/basic.git
 
-ÍÆËÍÖ¸¶¨·ÖÖ§µ½Ô¶³Ì·şÎñÆ÷(½¨Òé´ËÏî)
+æ¨é€æŒ‡å®šåˆ†æ”¯åˆ°è¿œç¨‹æœåŠ¡å™¨(å»ºè®®æ­¤é¡¹)
 git push origin feature/feature-4Init
-ÍÆËÍËùÓĞĞÅÏ¢µ½Ô¶³Ì·şÎñÆ÷
+æ¨é€æ‰€æœ‰ä¿¡æ¯åˆ°è¿œç¨‹æœåŠ¡å™¨
 git push {origin} --all
 
 
-Clone svn¿âµ½±¾µØ²¢½¨Á¢Æğ±¾µØgit¿â[¶ÔÓ¦Tag·ÖÖ§£¬Tag°æ±¾ºÅ´ÓÒªÄÃµÄ×îµÍTagµÄ°æ±¾ºÅËãÆğ]
+Clone svnåº“åˆ°æœ¬åœ°å¹¶å»ºç«‹èµ·æœ¬åœ°gitåº“[å¯¹åº”Tagåˆ†æ”¯ï¼ŒTagç‰ˆæœ¬å·ä»è¦æ‹¿çš„æœ€ä½Tagçš„ç‰ˆæœ¬å·ç®—èµ·]
 git svn clone http://szsvn01/repos/oneteam/QS/src/backend/Basic --authors-file=users.txt --no-metadata --tags=Tag -r 139507:HEAD basicTag
 
 cd basicTag
 
-¿½±´´Ósvn¿âdownÏÂÀ´µÄTag·ÖÖ§µ½ÕıÈ·µÄgit¿âÎ»ÖÃ²¢É¾³ı´íÎóĞÅÏ¢
+æ‹·è´ä»svnåº“downä¸‹æ¥çš„Tagåˆ†æ”¯åˆ°æ­£ç¡®çš„gitåº“ä½ç½®å¹¶åˆ é™¤é”™è¯¯ä¿¡æ¯
 cp -Rf .git/refs/remotes/tags/* .git/refs/tags/
 rm -Rf .git/refs/remotes/tags
 
-²é¿´±¾µØËùÓĞBranch
+æŸ¥çœ‹æœ¬åœ°æ‰€æœ‰Branch
 git branch -a
 
-²é¿´±¾µØËùÓĞTag
+æŸ¥çœ‹æœ¬åœ°æ‰€æœ‰Tag
 git tag
 
-É¾³ı±¾µØBranch
+åˆ é™¤æœ¬åœ°Branch
 git branch -d {branch name}
 
-É¾³ı±¾µØTag
+åˆ é™¤æœ¬åœ°Tag
 git tag -d {tag name}
 
-¸ø±¾µØgit¿âÔö¼ÓÔ¶³ÌµØÖ·£¬Ãû×ÖÎªorigin
+ç»™æœ¬åœ°gitåº“å¢åŠ è¿œç¨‹åœ°å€ï¼Œåå­—ä¸ºorigin
 git remote add origin https://mli5@msstash.morningstar.com/scm/qs/basic.git
 
-ÍÆËÍTag·ÖÖ§µÄËùÓĞĞÅÏ¢µ½Ô¶³Ì·şÎñÆ÷
-git push {origin} --tags {Ä³¸öÈ·¶¨µÄtag name}
+æ¨é€Tagåˆ†æ”¯çš„æ‰€æœ‰ä¿¡æ¯åˆ°è¿œç¨‹æœåŠ¡å™¨
+git push {origin} --tags {æŸä¸ªç¡®å®šçš„tag name}
 
 
 
-¸øµ±Ç°·ÖÖ§´òTag
-git tag -a Tag-2.8.1 -m ¡°Tag-2.8.1¡±
+ç»™å½“å‰åˆ†æ”¯æ‰“Tag
+git tag -a Tag-2.8.1 -m â€œTag-2.8.1â€
 
 
 
-¿½±´´Ósvn¿âdownÏÂÀ´µÄBranch·ÖÖ§µ½ÕıÈ·µÄgit¿âÎ»ÖÃ²¢É¾³ı´íÎóĞÅÏ¢
+æ‹·è´ä»svnåº“downä¸‹æ¥çš„Branchåˆ†æ”¯åˆ°æ­£ç¡®çš„gitåº“ä½ç½®å¹¶åˆ é™¤é”™è¯¯ä¿¡æ¯
 cp -Rf .git/refs/remotes/* .git/refs/heads/
 rm -Rf .git/refs/remotes
 
@@ -87,51 +87,51 @@ rm -Rf .git/refs/remotes
 Git discuss:
 
 
-knwang 41Â¥ ¡¤ 1 ÄêÇ°
-ĞèÒªÔÚbranchÉÏºÜ¾ÃµÄÊ±ºò¶à°ëÊÇÒªÍê³ÉÒ»Õû¿éµÄfeature set²ÅÄÜÕûºÏÔÚmasterÀïÃæ£¬ ±ÈÈç£¬·²ÊÇÉæ¼°µ½¸¶·ÑµÄÊ±ºò¾ÍÒª°ÑºÜ¶àÇéĞÎ¿¼ÂÇµ½×öÍê²ÅÄÜÒ»Æğdeploy¡£¿ÉÒÔÃ¿×öÍêÒ»Ğ¡¿é²âÊÔÍ¨¹ıºó¾Ígit checkout master; git pull --rebase origin master; git checkout my_branch; git rebase master
-ÕâÑùÏÈ°ÑÔ¶³Ìmaster±ğÈËµÄ´úÂëÄÃÏÂÀ´£¬ÔÙrebaseµ½×Ô¼ºµÄbranchÉÏÃæ¡£ÔÙÅÜ²âÊÔ¡£ Í¨¹ıÁËÖ®ºógit push origin my_branch, ÕâÑù¾Í²»ÓÃµ£ĞÄ±ÈÈçµçÄÔµôµ½Ë®¿ÓÀï£¬»òÕßĞèÒª±ğÈË½Ó×Å×öÕâ¸ö´ófeature set. ÔÙ¼ÌĞø×öÏÂÒ»Ğ¡¿é¡£Ô­Òò»¹ÊÇÃ¿´Î¼¯³ÉÉÙÁ¿´úÂë£¬ÓĞÎÊÌâÔç½â¾ö¡£¶øremote branchÉÏµÄcommit messageÒ²¿ÉÒÔ×÷ÎªÒ»ÖÖºÍÍ¬ÊÂµÄ½»Á÷¹¤¾ß£¬ÈÃ±ğÈËÖªµÀÄã×öµ½ÄÄÀï¡£
-µÈµ½feature set×öÍê, »¹ÊÇÒ»Ñùgit checkout master; git pull --rebase origin master; git checkout my_branch, git rebase master; run test; git checkout master; git merge my_branch (fast forward); git push origin master; deploy
-×Ü½áÏÂ:
-1) ËùÓĞdeveloperµÄ±¾µØmaster¶¼½ô¸úremote master£¬¶øÇÒ¶¼ÊÇworking code, ËæÊ±¿ÉÒÔdeploy
-2) ±¾µØpushÇ°ÏÈfetch remote master£¬ÕûºÏ²âÊÔÍ¨¹ıºó´Ólocal master push remote master, no conflict. 
+knwang 41æ¥¼ Â· 1 å¹´å‰
+éœ€è¦åœ¨branchä¸Šå¾ˆä¹…çš„æ—¶å€™å¤šåŠæ˜¯è¦å®Œæˆä¸€æ•´å—çš„feature setæ‰èƒ½æ•´åˆåœ¨masteré‡Œé¢ï¼Œ æ¯”å¦‚ï¼Œå‡¡æ˜¯æ¶‰åŠåˆ°ä»˜è´¹çš„æ—¶å€™å°±è¦æŠŠå¾ˆå¤šæƒ…å½¢è€ƒè™‘åˆ°åšå®Œæ‰èƒ½ä¸€èµ·deployã€‚å¯ä»¥æ¯åšå®Œä¸€å°å—æµ‹è¯•é€šè¿‡åå°±git checkout master; git pull --rebase origin master; git checkout my_branch; git rebase master
+è¿™æ ·å…ˆæŠŠè¿œç¨‹masteråˆ«äººçš„ä»£ç æ‹¿ä¸‹æ¥ï¼Œå†rebaseåˆ°è‡ªå·±çš„branchä¸Šé¢ã€‚å†è·‘æµ‹è¯•ã€‚ é€šè¿‡äº†ä¹‹ågit push origin my_branch, è¿™æ ·å°±ä¸ç”¨æ‹…å¿ƒæ¯”å¦‚ç”µè„‘æ‰åˆ°æ°´å‘é‡Œï¼Œæˆ–è€…éœ€è¦åˆ«äººæ¥ç€åšè¿™ä¸ªå¤§feature set. å†ç»§ç»­åšä¸‹ä¸€å°å—ã€‚åŸå› è¿˜æ˜¯æ¯æ¬¡é›†æˆå°‘é‡ä»£ç ï¼Œæœ‰é—®é¢˜æ—©è§£å†³ã€‚è€Œremote branchä¸Šçš„commit messageä¹Ÿå¯ä»¥ä½œä¸ºä¸€ç§å’ŒåŒäº‹çš„äº¤æµå·¥å…·ï¼Œè®©åˆ«äººçŸ¥é“ä½ åšåˆ°å“ªé‡Œã€‚
+ç­‰åˆ°feature setåšå®Œ, è¿˜æ˜¯ä¸€æ ·git checkout master; git pull --rebase origin master; git checkout my_branch, git rebase master; run test; git checkout master; git merge my_branch (fast forward); git push origin master; deploy
+æ€»ç»“ä¸‹:
+1) æ‰€æœ‰developerçš„æœ¬åœ°masteréƒ½ç´§è·Ÿremote masterï¼Œè€Œä¸”éƒ½æ˜¯working code, éšæ—¶å¯ä»¥deploy
+2) æœ¬åœ°pushå‰å…ˆfetch remote masterï¼Œæ•´åˆæµ‹è¯•é€šè¿‡åä»local master push remote master, no conflict. 
 3) push/deploy often, push/deploy early
-4) remote branches×ö±¸·İºÍ½»Á÷
-ÒªÊÇ³öÏÖÁË¼¸¸ölong living branchÓÖ¶¼²»ÄÜºÜ¿ìdeployµÄÊ±ºò¾Í±È½Ï¸´ÔÓ£¬¿ÉÒÔ¿¼ÂÇÔÙ¿ªÒ»¸ö·ÇmasterµÄintegration branch. µ«ÕâÖÖÇé¿öÒ»µ©³öÏÖ¸ü¶àµÄÊÇÕû¸öÏîÄ¿µÄ³ï»®³öÁËÎÊÌâ¡£
+4) remote branchesåšå¤‡ä»½å’Œäº¤æµ
+è¦æ˜¯å‡ºç°äº†å‡ ä¸ªlong living branchåˆéƒ½ä¸èƒ½å¾ˆå¿«deployçš„æ—¶å€™å°±æ¯”è¾ƒå¤æ‚ï¼Œå¯ä»¥è€ƒè™‘å†å¼€ä¸€ä¸ªémasterçš„integration branch. ä½†è¿™ç§æƒ…å†µä¸€æ—¦å‡ºç°æ›´å¤šçš„æ˜¯æ•´ä¸ªé¡¹ç›®çš„ç­¹åˆ’å‡ºäº†é—®é¢˜ã€‚
 
-HungYuHei 42Â¥ ¡¤ 1 ÄêÇ°
-ÎÒµÄ×ö·¨Ò²¸ú @knwang Ò»Ñù£¬Ã¿´ÎÌá½»Ç°¶¼Òª rebase Ò»´ÎÍ¬²½¹ıµÄÖ÷¸É·ÖÖ§£¬²»¹ıÎÒºÏ²¢Ê±Í¨³£»áÓÃ merge --no-ff
+HungYuHei 42æ¥¼ Â· 1 å¹´å‰
+æˆ‘çš„åšæ³•ä¹Ÿè·Ÿ @knwang ä¸€æ ·ï¼Œæ¯æ¬¡æäº¤å‰éƒ½è¦ rebase ä¸€æ¬¡åŒæ­¥è¿‡çš„ä¸»å¹²åˆ†æ”¯ï¼Œä¸è¿‡æˆ‘åˆå¹¶æ—¶é€šå¸¸ä¼šç”¨ merge --no-ff
 
-knwang 48Â¥ ¡¤ 1 ÄêÇ°
-Ëµ¹éµ½µ×£¬gitÊÇÎª¿ª·¢Á÷³Ì·şÎñµÄ£¬¶ø¿ª·¢µÄÁ÷³ÌÓÖ¸úÍÅ¶ÓµÄ¹¹³ÉºÍ¿ª·Å·½Ê½ÃÜÇĞÏà¹Ø¡£
-±ÈÈçËµ£¬Èç¹ûÍÅ¶ÓµÄ³ÌĞòÔ±¶¼×øÔÚÍ¬Ò»¸ö°ì¹«ÊÒÀï£¬²¢ÇÒÓĞ¶Ô´úÂë½»Á÷ÌÖÂÛµÄÏ°¹ß£¬Ë®×¼¶¼²»´í¶øÇÒ»¥ÏàĞÅÈÎ£»»òÕß¾­³£×ö½á¶Ô±à³ÌÓĞ³ä·ÖµÄÌÖÂÛ£»ÕâÑùµÄ»°ÓÃrebase¾ÍºÜºÃ£¬¿ÉÒÔ°ÑĞ¡¿éµÄ´úÂë¿ìËÙ¼¯³É¶øÇÒ¸ßÆµÂÊµÄdeploy, ´ó²¿·ÖµÄbranch¶¼ÊÇºÜ¿ì¾Í»áÌŞ³ıµô
-Èç¹ûÍÅ¶Ó²»ÔÚÍ¬Ò»¸öµØ·½Ï£ÍûÄÜ¼ÓÇ¿½»Á÷£¬ »òÕßË®Æ½²»Ò»ÓĞĞ©ĞÂÊÖ£¬ ÕâÑùÏó@HungYuHeiµÄÁ÷³Ì¾ÍºÜºÃ£¬Ã¿Ò»¸ömergeµÄÁ÷³Ì¶¼ÇåÎú±íÏÖ³öÀ´£¬¶øÇÒÒªmergeµÄcommitsÒ²Ò»Ä¿ÁËÈ»£¬ ºÜÊÊºÏ¸ù¾İÕâ¸öÀ´½øĞĞcode reviewºÍÌÖÂÛ¡£ Õâ¸öÁ÷³ÌµÄ´ú±íÊÇGithub, ËûÃÇµÄÁ÷³Ì°üº¬Ò»¸ö¶Ô×Ô¼ºrepoµÄpull request, ²¢ÇÒÓÃpull requestÀ´×÷ÎªÌÖÂÛ´úÂëµÄÒ»¸ö¹¤¾ß¡£
-¿ÉÒÔ²Î¿´http://zachholman.com/talk/how-github-uses-github-to-build-github
-ÕâÖÖ·½Ê½ĞèÒª×¢ÒâµÄÊÇÒòÎªĞèÒªµÈ±ğÈËµÄcode review, ´úÂë²»ÄÜÁ¢¿Ìdeploy»á·ÅÂı½Ú×à£¬¶øÇÒÓĞ¿ÉÄÜ»áÒò´Ë´´½¨´óÁ¿µÄbranches, µ¼ÖÂ¿ÉÄÜÒª¶à·½merge£¬ ¶øÇÒÒ²¿ÉÄÜ»áÈÃcommit historyÔÓÂÒ¡£ µ«È·Êµ¶ÔÓÚÍÅ¶ÓµÄ½»Á÷·Ç³£ÓĞºÃ´¦¡£
-ËùÒÔ¾ÍÊÇ¸ù¾İÍÅ¶ÓµÄÇé¿ö×öÑ¡ÔñÁË¡£
-
-
+knwang 48æ¥¼ Â· 1 å¹´å‰
+è¯´å½’åˆ°åº•ï¼Œgitæ˜¯ä¸ºå¼€å‘æµç¨‹æœåŠ¡çš„ï¼Œè€Œå¼€å‘çš„æµç¨‹åˆè·Ÿå›¢é˜Ÿçš„æ„æˆå’Œå¼€æ”¾æ–¹å¼å¯†åˆ‡ç›¸å…³ã€‚
+æ¯”å¦‚è¯´ï¼Œå¦‚æœå›¢é˜Ÿçš„ç¨‹åºå‘˜éƒ½ååœ¨åŒä¸€ä¸ªåŠå…¬å®¤é‡Œï¼Œå¹¶ä¸”æœ‰å¯¹ä»£ç äº¤æµè®¨è®ºçš„ä¹ æƒ¯ï¼Œæ°´å‡†éƒ½ä¸é”™è€Œä¸”äº’ç›¸ä¿¡ä»»ï¼›æˆ–è€…ç»å¸¸åšç»“å¯¹ç¼–ç¨‹æœ‰å……åˆ†çš„è®¨è®ºï¼›è¿™æ ·çš„è¯ç”¨rebaseå°±å¾ˆå¥½ï¼Œå¯ä»¥æŠŠå°å—çš„ä»£ç å¿«é€Ÿé›†æˆè€Œä¸”é«˜é¢‘ç‡çš„deploy, å¤§éƒ¨åˆ†çš„branchéƒ½æ˜¯å¾ˆå¿«å°±ä¼šå‰”é™¤æ‰
+å¦‚æœå›¢é˜Ÿä¸åœ¨åŒä¸€ä¸ªåœ°æ–¹å¸Œæœ›èƒ½åŠ å¼ºäº¤æµï¼Œ æˆ–è€…æ°´å¹³ä¸ä¸€æœ‰äº›æ–°æ‰‹ï¼Œ è¿™æ ·è±¡@HungYuHeiçš„æµç¨‹å°±å¾ˆå¥½ï¼Œæ¯ä¸€ä¸ªmergeçš„æµç¨‹éƒ½æ¸…æ™°è¡¨ç°å‡ºæ¥ï¼Œè€Œä¸”è¦mergeçš„commitsä¹Ÿä¸€ç›®äº†ç„¶ï¼Œ å¾ˆé€‚åˆæ ¹æ®è¿™ä¸ªæ¥è¿›è¡Œcode reviewå’Œè®¨è®ºã€‚ è¿™ä¸ªæµç¨‹çš„ä»£è¡¨æ˜¯Github, ä»–ä»¬çš„æµç¨‹åŒ…å«ä¸€ä¸ªå¯¹è‡ªå·±repoçš„pull request, å¹¶ä¸”ç”¨pull requestæ¥ä½œä¸ºè®¨è®ºä»£ç çš„ä¸€ä¸ªå·¥å…·ã€‚
+å¯ä»¥å‚çœ‹http://zachholman.com/talk/how-github-uses-github-to-build-github
+è¿™ç§æ–¹å¼éœ€è¦æ³¨æ„çš„æ˜¯å› ä¸ºéœ€è¦ç­‰åˆ«äººçš„code review, ä»£ç ä¸èƒ½ç«‹åˆ»deployä¼šæ”¾æ…¢èŠ‚å¥ï¼Œè€Œä¸”æœ‰å¯èƒ½ä¼šå› æ­¤åˆ›å»ºå¤§é‡çš„branches, å¯¼è‡´å¯èƒ½è¦å¤šæ–¹mergeï¼Œ è€Œä¸”ä¹Ÿå¯èƒ½ä¼šè®©commit historyæ‚ä¹±ã€‚ ä½†ç¡®å®å¯¹äºå›¢é˜Ÿçš„äº¤æµéå¸¸æœ‰å¥½å¤„ã€‚
+æ‰€ä»¥å°±æ˜¯æ ¹æ®å›¢é˜Ÿçš„æƒ…å†µåšé€‰æ‹©äº†ã€‚
 
 
 
 
-#3Â¥ 2014-01-14 17:39 andycnzh  
-ÔÚmaster·ÖÖ§ÉÏ½øĞĞrebaseÒ»°ãÀ´ËµÓ¦¸ÃÊÇ²»¶ÔµÄ¡£
 
-master·ÖÖ§Ä¬ÈÏÊÇ¹«¹²·ÖÖ§£¬µ±ÓĞ¶àÈËĞ­Í¬Ê±£¬master·ÖÖ§ÔÚ¶à¸öµØ·½¶¼ÓĞ¸±±¾¡£
 
-Èç¹ûÔÚmaster·ÖÖ§ÉÏÖ´ĞĞgit rebase test£¬»á°Ñmaster·ÖÖ§µÄÌá½»ÀúÊ·½øĞĞĞŞ¸Ä£¬¿ÉÒÔÊ¹ÓÃgit log×ĞÏ¸¹Û²ìrebaseÇ°ºó£¬master·ÖÖ§ÉÏµÄcommit hash id¡£
+#3æ¥¼ 2014-01-14 17:39 andycnzh  
+åœ¨masteråˆ†æ”¯ä¸Šè¿›è¡Œrebaseä¸€èˆ¬æ¥è¯´åº”è¯¥æ˜¯ä¸å¯¹çš„ã€‚
 
-Ò»µ©ĞŞ¸ÄÁËmasterµÄcommit hash id£¬¶øÈç¹ûÆäËûÈËÒÑ¾­»ùÓÚÖ®Ç°µÄcommit¶ÔÏó×öÁË¹¤×÷£¬ÄÇÃ´µ±ËûÀ­È¡masterµÄĞÂµÄ¶ÔÏóÊ±£¬»áĞèÒªÔÚºÏ²¢Ò»´Î£¬ÕâÑù·´¸´ÏÂÈ¥£¬»á°Ñmaster·ÖÖ§¸ãµÃÒ»ÍÅÂÒ¡£
+masteråˆ†æ”¯é»˜è®¤æ˜¯å…¬å…±åˆ†æ”¯ï¼Œå½“æœ‰å¤šäººååŒæ—¶ï¼Œmasteråˆ†æ”¯åœ¨å¤šä¸ªåœ°æ–¹éƒ½æœ‰å‰¯æœ¬ã€‚
 
-ËùÒÔÄãµÄÊ¾ÀıÖĞmaster·ÖÖ§µ½Ìá½»¶ÔÏómaster2¡¢master3£¬Èç¹ûÒÑ¾­ÍÆËÍµ½Ô¶¶Ë£¬²¢ÓĞÆäËûÈË»ùÓÚmaster3¶ÔÏó½øĞĞÁË¹¤×÷£¬ÄÇÃ´ºóÃæµÄ½á¹û½«»á±äµÃ·Ç³£µÄÂÒ¡£
+å¦‚æœåœ¨masteråˆ†æ”¯ä¸Šæ‰§è¡Œgit rebase testï¼Œä¼šæŠŠmasteråˆ†æ”¯çš„æäº¤å†å²è¿›è¡Œä¿®æ”¹ï¼Œå¯ä»¥ä½¿ç”¨git logä»”ç»†è§‚å¯Ÿrebaseå‰åï¼Œmasteråˆ†æ”¯ä¸Šçš„commit hash idã€‚
 
-rebaseµÄº¬ÒåÊÇ°Ñµ±Ç°·ÖÖ§µÄÌá½»¶ÔÏóÔÚÄ¿±ê·ÖÖ§ÉÏÖØ×öÒ»±é£¬²¢Éú³ÉÁËĞÂµÄÌá½»¶ÔÏó¡£
+ä¸€æ—¦ä¿®æ”¹äº†masterçš„commit hash idï¼Œè€Œå¦‚æœå…¶ä»–äººå·²ç»åŸºäºä¹‹å‰çš„commitå¯¹è±¡åšäº†å·¥ä½œï¼Œé‚£ä¹ˆå½“ä»–æ‹‰å–masterçš„æ–°çš„å¯¹è±¡æ—¶ï¼Œä¼šéœ€è¦åœ¨åˆå¹¶ä¸€æ¬¡ï¼Œè¿™æ ·åå¤ä¸‹å»ï¼Œä¼šæŠŠmasteråˆ†æ”¯æå¾—ä¸€å›¢ä¹±ã€‚
 
-ËùÒÔÈç¹ûÔÚmaster·ÖÖ§ÉÏĞèÒª¶Ôtest·ÖÖ§½øĞĞrebase£¬ÄãĞèÒªµÄÃüÁîÊÇ
+æ‰€ä»¥ä½ çš„ç¤ºä¾‹ä¸­masteråˆ†æ”¯åˆ°æäº¤å¯¹è±¡master2ã€master3ï¼Œå¦‚æœå·²ç»æ¨é€åˆ°è¿œç«¯ï¼Œå¹¶æœ‰å…¶ä»–äººåŸºäºmaster3å¯¹è±¡è¿›è¡Œäº†å·¥ä½œï¼Œé‚£ä¹ˆåé¢çš„ç»“æœå°†ä¼šå˜å¾—éå¸¸çš„ä¹±ã€‚
+
+rebaseçš„å«ä¹‰æ˜¯æŠŠå½“å‰åˆ†æ”¯çš„æäº¤å¯¹è±¡åœ¨ç›®æ ‡åˆ†æ”¯ä¸Šé‡åšä¸€éï¼Œå¹¶ç”Ÿæˆäº†æ–°çš„æäº¤å¯¹è±¡ã€‚
+
+æ‰€ä»¥å¦‚æœåœ¨masteråˆ†æ”¯ä¸Šéœ€è¦å¯¹teståˆ†æ”¯è¿›è¡Œrebaseï¼Œä½ éœ€è¦çš„å‘½ä»¤æ˜¯
 1  git rebase master test
 
-ÕâÌõÃüÁîµÈ¼ÛÓÚÁ½ÌõÃüÁîµÄºÏ¼¯
+è¿™æ¡å‘½ä»¤ç­‰ä»·äºä¸¤æ¡å‘½ä»¤çš„åˆé›†
 1  git checkout test
 2  git rebase master
 
-ÓÀÔ¶²»ÒªÔÚÒÑ¾­·¢²¼µ½¹«¹²²Ö¿âµÄÌá½»¶ÔÏóÉÏ×örebase²Ù×÷£¬¶ømaster·ÖÖ§Ä¬ÈÏ¾ÍÊÇ¹«¹²²Ö¿â¡£
+æ°¸è¿œä¸è¦åœ¨å·²ç»å‘å¸ƒåˆ°å…¬å…±ä»“åº“çš„æäº¤å¯¹è±¡ä¸Šåšrebaseæ“ä½œï¼Œè€Œmasteråˆ†æ”¯é»˜è®¤å°±æ˜¯å…¬å…±ä»“åº“ã€‚
