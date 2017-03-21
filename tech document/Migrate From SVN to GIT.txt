@@ -1,0 +1,137 @@
+这个应该是获取users.txt的命令，但时间经过太久了不知道是从哪执行，貌似应该找到svn客户端在linux机器上的地方执行。
+实在不行就用以下方式创建：
+新建users.txt
+内容格式为
+mli5 = Ming Li <ming.li@morningstar.com>
+svn名 = git名 <git email>
+记于2015-12-14
+svn log --quiet http://szsvn01/repos/oneteam/QS/src/backend/WebService/Trunk --xml |grep -P "^<author" |sort -u |perl -pe 's/<author>(.*?)<\/author>/$1 = $1 < $1\@morningstar.com>/' > users.txt
+
+
+Clone git库到本地
+git clone https://mli5@msstash.morningstar.com/scm/qs/basic.git
+
+
+Clone svn库到本地并建立起本地git库[对应非Tag分支]
+--authors-file  使用svn与git的用户对应列表
+--no-metadata   忽略svn中无用的源信息
+-r 版本号       从指定的revision版本号clone
+最后的是本地git的名字
+git svn clone http://szsvn01/repos/oneteam/QS/src/backend/Basic/Trunk --authors-file=users.txt --no-metadata -r 166193:HEAD basic
+
+cd basic
+
+非master分支则进行以下这步：创建feature-4Init分支放在feature文件夹下并切换到该分支
+git checkout -b feature/feature-4Init
+
+给本地git库增加远程地址，名字为origin
+git remote add origin https://mli5@msstash.morningstar.com/scm/qs/basic.git
+
+推送指定分支到远程服务器(建议此项)
+git push origin feature/feature-4Init
+推送所有信息到远程服务器
+git push {origin} --all
+
+
+Clone svn库到本地并建立起本地git库[对应Tag分支，Tag版本号从要拿的最低Tag的版本号算起]
+git svn clone http://szsvn01/repos/oneteam/QS/src/backend/Basic --authors-file=users.txt --no-metadata --tags=Tag -r 139507:HEAD basicTag
+
+cd basicTag
+
+拷贝从svn库down下来的Tag分支到正确的git库位置并删除错误信息
+cp -Rf .git/refs/remotes/tags/* .git/refs/tags/
+rm -Rf .git/refs/remotes/tags
+
+查看本地所有Branch
+git branch -a
+
+查看本地所有Tag
+git tag
+
+删除本地Branch
+git branch -d {branch name}
+
+删除本地Tag
+git tag -d {tag name}
+
+给本地git库增加远程地址，名字为origin
+git remote add origin https://mli5@msstash.morningstar.com/scm/qs/basic.git
+
+推送Tag分支的所有信息到远程服务器
+git push {origin} --tags {某个确定的tag name}
+
+
+
+给当前分支打Tag
+git tag -a Tag-2.8.1 -m “Tag-2.8.1”
+
+
+
+拷贝从svn库down下来的Branch分支到正确的git库位置并删除错误信息
+cp -Rf .git/refs/remotes/* .git/refs/heads/
+rm -Rf .git/refs/remotes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git discuss:
+
+
+knwang 41楼 · 1 年前
+需要在branch上很久的时候多半是要完成一整块的feature set才能整合在master里面， 比如，凡是涉及到付费的时候就要把很多情形考虑到做完才能一起deploy。可以每做完一小块测试通过后就git checkout master; git pull --rebase origin master; git checkout my_branch; git rebase master
+这样先把远程master别人的代码拿下来，再rebase到自己的branch上面。再跑测试。 通过了之后git push origin my_branch, 这样就不用担心比如电脑掉到水坑里，或者需要别人接着做这个大feature set. 再继续做下一小块。原因还是每次集成少量代码，有问题早解决。而remote branch上的commit message也可以作为一种和同事的交流工具，让别人知道你做到哪里。
+等到feature set做完, 还是一样git checkout master; git pull --rebase origin master; git checkout my_branch, git rebase master; run test; git checkout master; git merge my_branch (fast forward); git push origin master; deploy
+总结下:
+1) 所有developer的本地master都紧跟remote master，而且都是working code, 随时可以deploy
+2) 本地push前先fetch remote master，整合测试通过后从local master push remote master, no conflict. 
+3) push/deploy often, push/deploy early
+4) remote branches做备份和交流
+要是出现了几个long living branch又都不能很快deploy的时候就比较复杂，可以考虑再开一个非master的integration branch. 但这种情况一旦出现更多的是整个项目的筹划出了问题。
+
+HungYuHei 42楼 · 1 年前
+我的做法也跟 @knwang 一样，每次提交前都要 rebase 一次同步过的主干分支，不过我合并时通常会用 merge --no-ff
+
+knwang 48楼 · 1 年前
+说归到底，git是为开发流程服务的，而开发的流程又跟团队的构成和开放方式密切相关。
+比如说，如果团队的程序员都坐在同一个办公室里，并且有对代码交流讨论的习惯，水准都不错而且互相信任；或者经常做结对编程有充分的讨论；这样的话用rebase就很好，可以把小块的代码快速集成而且高频率的deploy, 大部分的branch都是很快就会剔除掉
+如果团队不在同一个地方希望能加强交流， 或者水平不一有些新手， 这样象@HungYuHei的流程就很好，每一个merge的流程都清晰表现出来，而且要merge的commits也一目了然， 很适合根据这个来进行code review和讨论。 这个流程的代表是Github, 他们的流程包含一个对自己repo的pull request, 并且用pull request来作为讨论代码的一个工具。
+可以参看http://zachholman.com/talk/how-github-uses-github-to-build-github
+这种方式需要注意的是因为需要等别人的code review, 代码不能立刻deploy会放慢节奏，而且有可能会因此创建大量的branches, 导致可能要多方merge， 而且也可能会让commit history杂乱。 但确实对于团队的交流非常有好处。
+所以就是根据团队的情况做选择了。
+
+
+
+
+
+
+#3楼 2014-01-14 17:39 andycnzh  
+在master分支上进行rebase一般来说应该是不对的。
+
+master分支默认是公共分支，当有多人协同时，master分支在多个地方都有副本。
+
+如果在master分支上执行git rebase test，会把master分支的提交历史进行修改，可以使用git log仔细观察rebase前后，master分支上的commit hash id。
+
+一旦修改了master的commit hash id，而如果其他人已经基于之前的commit对象做了工作，那么当他拉取master的新的对象时，会需要在合并一次，这样反复下去，会把master分支搞得一团乱。
+
+所以你的示例中master分支到提交对象master2、master3，如果已经推送到远端，并有其他人基于master3对象进行了工作，那么后面的结果将会变得非常的乱。
+
+rebase的含义是把当前分支的提交对象在目标分支上重做一遍，并生成了新的提交对象。
+
+所以如果在master分支上需要对test分支进行rebase，你需要的命令是
+1  git rebase master test
+
+这条命令等价于两条命令的合集
+1  git checkout test
+2  git rebase master
+
+永远不要在已经发布到公共仓库的提交对象上做rebase操作，而master分支默认就是公共仓库。
