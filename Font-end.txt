@@ -1,0 +1,4 @@
+chart:
+
+Valor 10K growth:
+http://qsstage.morningstar.com/apis/api.jsp?instid=VALOR&module=chart&symbol=52.8.01311002&apiVersion=3&cfg=growth10KDecimal:10|dataType:growth10K&cTickers=F00000T7OS
