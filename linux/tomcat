@@ -17,6 +17,12 @@ Tomcat发布流程：
   6.查看日志  tail -100f catalina.out  Ctrl+c 退出查看 
   
 
-  
+#Conf JMX
+export JAVA_OPTS="$JAVA_OPTS -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=1098"
+#Conf Memory
+CATALINA_OPTS="$CATALINA_OPTS -server -Xms8192M -Xmx8192M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M"
+#Conf GC
+CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:MinMetaspaceFreeRatio=50 -XX:MaxMetaspaceFreeRatio=80 -XX:MinMetaspaceExpansion=4M -XX:MaxMetaspaceExpansion=16M -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+HeapDumpOnOutOfMemoryError"
+
   
   
