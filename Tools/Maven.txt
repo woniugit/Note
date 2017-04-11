@@ -1,0 +1,3 @@
+
+TestNg 在maven 中的应用
+http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html
