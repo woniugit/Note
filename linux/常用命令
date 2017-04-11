@@ -32,3 +32,8 @@ mode 权限设置字符串 [ugoa][+-=][rwx]
 
 执行url 并将结果输出到aa.txt里
 wget “url” -O aa.txt  
+
+服务器设置 ssh 超时时间
+/etc/ssh/sshd_config
+ClientAliveInterval 30     #每30秒向客户端请求消息
+ClientAliveCountMax 5      #连的人多就设大一点
