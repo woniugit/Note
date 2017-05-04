@@ -1,0 +1,4 @@
+set Environment="MarketsLive"
+set TestSuite="src/test/resources/suite/QsalertTestSuite.xml"
+set config="{\"reportOptions\": {\"emailRecipients\": [\"Devin.liu@morningstar.com\"]}}"
+mvn test -Denv=%Environment% -Dmaven.filepath=%TestSuite% -Dconfig=%Config%  
