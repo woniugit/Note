@@ -13,7 +13,7 @@ NewsTeam alert
 	realtime alert:
 	https://mswiki.morningstar.com/display/PDS/Real+Time+Credentials
 	http://msoxml.tenfore.com/AlertService/?username=XXXXXXX&password=XXXXXX&instrument=151.1.VOD&alert=11,55&UniqueUserID=TestUser
-	http://msoxml.tenfore.com/AlertService/?username=TeMrXXXX&password=123XXXX&UniqueUserID=1234567&ActiveAlerts
+	http://msoxml.tenfore.com/AlertService/?username=ScSc16007password=PP7AB6&UniqueUserID=1234567&ActiveAlerts
 	https://mswiki.morningstar.com/display/PDS/Real+Time+Web+Services+Spec?preview=/117546581/117508510/Morningstar%20Web%20Services%20Specification%20v4%204.pdf
 	http://mshxml.morningstar.com/AlertService/?username=ScSc16007&password=PP7AB6&UniqueUserID=15081&TriggeredAlerts
 	
